@@ -28,5 +28,15 @@ The following recipe model is used:
 ## Branches
 To help move the presentation along there are several branches implemented so we can showcase the evolution of the application while maximizing our time for the presentation.
 
-### main
-Main is simply the initial scaffold of the project, there is not much here at the moment, but this is where we will begin.
+### [main](https://github.com/atkinsonbg/hexagonal-screaming-architecture-dotnet)
+Main is simply the initial scaffold of the project, there is not much here at the moment, but this is where we will begin. This branch includes the following folder structure:
+- src: All source code and .NET projects land in this folder
+- tests: All .NET test projects land in this folder
+- sln: We will only have 1 solution file and its in the root of the repo
+- Docker Compose: We'll use Docker Compose to run our infrastrcture for easy development and testing
+- Makefile: Our Makefile holds all the commnads used to gen projects, the solution, as well as any Docker commands
+
+This is the extent of the scaffold for main.
+
+### [add-minimal-api](https://github.com/atkinsonbg/hexagonal-screaming-architecture-dotnet)
+This branch is the initial Adapater we will build and only holds a scaffold of the project to begin with.
