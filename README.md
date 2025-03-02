@@ -9,3 +9,20 @@ The following endpoints are supported:
 - __GET__ /recipe/{id}
 - __PUT__ /recipe/{id}
 - __DELETE__ /recipe/{id}
+
+  The following Models are used for each endpoint:
+
+  ### POST /recipe
+  ```
+  {
+    "title": "Recipe title",
+    "description": "A description of the recipe"
+    "instructions": "Instructions for the recipe",
+    "ingredients": [
+      {
+         "name": "Name of the ingredient",
+         "amount": "Amount of the ingedient, just a string to keep it simple"
+      }
+    ]
+  }
+  ```
