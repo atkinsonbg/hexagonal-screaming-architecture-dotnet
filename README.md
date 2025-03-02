@@ -10,19 +10,23 @@ The following endpoints are supported:
 - __PUT__ /recipe/{id}
 - __DELETE__ /recipe/{id}
 
-  The following Models are used for each endpoint:
+The following recipe model is used:
+```
+{
+  "title": "Recipe title",
+  "description": "A description of the recipe",
+  "instructions": "Instructions for the recipe",
+  "ingredients": [
+    {
+       "name": "Name of the ingredient",
+       "amount": "Amount of the ingedient, just a string to keep it simple"
+    }
+  ]
+}
+```
 
-  ### POST /recipe
-  ```
-  {
-    "title": "Recipe title",
-    "description": "A description of the recipe"
-    "instructions": "Instructions for the recipe",
-    "ingredients": [
-      {
-         "name": "Name of the ingredient",
-         "amount": "Amount of the ingedient, just a string to keep it simple"
-      }
-    ]
-  }
-  ```
+## Branches
+To help move the presentation along there are several branches implemented so we can showcase the evolution of the application while maximizing our time for the presentation.
+
+### main
+Main is simply the initial scaffold of the project, there is not much here at the moment, but this is where we will begin.
