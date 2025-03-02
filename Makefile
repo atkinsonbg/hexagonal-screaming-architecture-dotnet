@@ -1,2 +1,2 @@
 sln:
-    dotnet new sln --name hexagonal-screaming-architecture-dotnet
+	dotnet new sln --name hexagonal-screaming-architecture-dotnet
