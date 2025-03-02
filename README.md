@@ -38,5 +38,5 @@ Main is simply the initial scaffold of the project, there is not much here at th
 
 This is the extent of the scaffold for main.
 
-### [add-minimal-api](https://github.com/atkinsonbg/hexagonal-screaming-architecture-dotnet)
+### [add-minimal-api](https://github.com/atkinsonbg/hexagonal-screaming-architecture-dotnet/tree/add-minimal-api)
 This branch is the initial Adapater we will build and only holds a scaffold of the project to begin with.
