@@ -39,4 +39,8 @@ Main is simply the initial scaffold of the project, there is not much here at th
 This is the extent of the scaffold for main.
 
 ### [add-minimal-api](https://github.com/atkinsonbg/hexagonal-screaming-architecture-dotnet/tree/add-minimal-api)
-This branch is the initial Adapater we will build and only holds a scaffold of the project to begin with.
+This branch is the initial Adapter we will build and only holds a scaffold of the project to begin with. This is our API
+and in this branch we are simply creating all our Screaming directories, which hold our endpoints as well as our
+response objects. In this branch we do nothing more than scaffold out the endpoints and wire everything up so that
+they return responses, but there is no business logic implemented just yet.
+
