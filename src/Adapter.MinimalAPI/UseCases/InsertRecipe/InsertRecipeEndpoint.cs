@@ -6,8 +6,13 @@ public static class InsertRecipeEndpoint
         return app;
     }
 
-    private static IResult HandleAsync()
+    private static IResult HandleAsync(HttpRequest request)
     {
-        return Results.Ok("Recipe inserted");
+        InsertRecipeResponse response = new InsertRecipeResponse()
+        {
+            Id = 1
+        };
+        
+        return Results.Ok(response);
     }
 }

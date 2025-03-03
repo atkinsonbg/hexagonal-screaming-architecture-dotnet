@@ -8,7 +8,13 @@ public static class GetRecipeEndpoint
 
     private static IResult HandleAsync(HttpRequest request)
     {
-        var id = request.RouteValues["id"];
-        return Results.Ok($"Recipe {id} retrieved");
+        string id = request.RouteValues["id"].ToString();
+
+        GetRecipeResponse response = new GetRecipeResponse()
+        {
+            Id = int.Parse(id)
+        };
+        
+        return Results.Ok(response);
     }
 }
