@@ -8,11 +8,25 @@ public static class GetRecipeEndpoint
 
     private static IResult HandleAsync(HttpRequest request)
     {
-        string id = request.RouteValues["id"].ToString();
+        int id = int.Parse(request.RouteValues["id"].ToString());
+
+        var recipe = new Core.UseCases.GetRecipe().PerformGet(id);
+        
+        if (recipe == null)
+        {
+            return Results.NotFound();
+        }
 
         GetRecipeResponse response = new GetRecipeResponse()
         {
-            Id = int.Parse(id)
+            Id = recipe.Id,
+            Title = recipe.Title,
+            Description = recipe.Description,
+            Ingredients = recipe.Ingredients.Select(i => new Ingredient
+            {
+                Name = i.Name,
+                Amount = i.Amount
+            }).ToList()
         };
         
         return Results.Ok(response);
