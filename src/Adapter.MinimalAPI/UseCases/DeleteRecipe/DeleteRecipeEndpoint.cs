@@ -8,13 +8,16 @@ public static class DeleteRecipeEndpoint
 
     private static IResult HandleAsync(HttpRequest request)
     {
-        string id = request.RouteValues["id"].ToString();
+        int id = int.Parse(request.RouteValues["id"].ToString());
+        var successfullyDeletedRecipe = new Core.UseCases.DeleteRecipe().PerformDelete(id);
 
         DeleteRecipeResponse response = new DeleteRecipeResponse()
         {
-            Id = int.Parse(id),
-            Success = true,
-            Message = $"Successfully deleted recipe with ID: {id}"
+            Id = id,
+            Success = successfullyDeletedRecipe,
+            Message = successfullyDeletedRecipe 
+                ? $"Successfully deleted recipe with ID: {id}" 
+                : $"Failed to delete recipe with ID: {id}"
         };
         
         return Results.Ok(response);

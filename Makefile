@@ -1,3 +1,6 @@
+run:
+	dotnet run --project ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj
+
 sln:
 	dotnet new sln --name hexagonal-screaming-architecture-dotnet
 	
@@ -12,3 +15,6 @@ add-core-project:
 	
 update-sln-add-core:
 	dotnet sln hexagonal-screaming-architecture-dotnet.sln add ./src/Core/Core.csproj
+
+add-core-reference-to-api:
+	dotnet add ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj reference ./src/Core/Core.csproj
