@@ -1,3 +1,6 @@
+build:
+	dotnet build
+
 run:
 	dotnet run --project ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj
 

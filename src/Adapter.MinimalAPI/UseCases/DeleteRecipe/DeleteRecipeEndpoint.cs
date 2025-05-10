@@ -8,7 +8,7 @@ public static class DeleteRecipeEndpoint
 
     private static IResult HandleAsync(HttpRequest request)
     {
-        int id = int.Parse(request.RouteValues["id"].ToString());
+        int id = int.Parse(request?.RouteValues?["id"].ToString());
         var successfullyDeletedRecipe = new Core.UseCases.DeleteRecipe().PerformDelete(id);
 
         DeleteRecipeResponse response = new DeleteRecipeResponse()

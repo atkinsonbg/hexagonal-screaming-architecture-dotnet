@@ -1,3 +1,5 @@
+using Core.Models;
+
 namespace Core.UseCases;
 
 public class GetRecipe
@@ -9,6 +11,9 @@ public class GetRecipe
 
     public Recipe? PerformGet(int id)
     {
+        // Simulate fetching the recipe
+        // In a real application, this would involve database operations
+        // For this example, we'll just return the recipe back
         if (id == 1)
         {
             return new Recipe

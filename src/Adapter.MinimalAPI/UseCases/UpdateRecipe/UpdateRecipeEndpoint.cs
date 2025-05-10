@@ -2,17 +2,31 @@ public static class UpdateRecipeEndpoint
 {
     public static WebApplication MapUpdateRecipeEndpoint(this WebApplication app)
     {
-        app.MapPut("/recipe/{id}", HandleAsync);
+        app.MapPut("/recipe", async (Recipe recipe) => await HandleAsync(recipe));
         return app;
     }
 
-    private static IResult HandleAsync(HttpRequest request)
+    private static async Task<IResult> HandleAsync(Recipe recipe)
     {
-        string id = request.RouteValues["id"].ToString();
+        var coreRecipe = new Core.Models.Recipe()
+        {
+            Title = recipe.Title,
+            Description = recipe.Description,
+            Ingredients = recipe.Ingredients.Select(i => new Core.Models.Ingredient
+            {
+                Name = i.Name,
+                Amount = i.Amount
+            }).ToList()
+        };
+
+        var coreUpdateRecipe = new Core.UseCases.UpdateRecipe();
+        var updatedRecipe = coreUpdateRecipe.PerformUpdate(coreRecipe);
 
         UpdateRecipeResponse response = new UpdateRecipeResponse()
         {
-            Id = int.Parse(id)
+            Id = updatedRecipe.Id,
+            Title = updatedRecipe.Title,
+            Description = updatedRecipe.Description
         };
         
         return Results.Ok(response);

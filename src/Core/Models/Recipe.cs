@@ -1,14 +1,16 @@
-public record Recipe
+namespace Core.Models;
+
+public class Recipe
 {
-    public int Id { get; init; }
-    public string Title { get; init; } = string.Empty;
-    public string Description { get; init; } = string.Empty;
-    public string Instructions { get; init; } = string.Empty;
-    public List<Ingredient> Ingredients { get; init; } = new List<Ingredient>();
+    public int Id { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public string Instructions { get; set; } = string.Empty;
+    public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
 }
 
-public record Ingredient
+public class Ingredient
 {
-    public string Name { get; init; } = string.Empty;
-    public string Amount { get; init; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public string Amount { get; set; } = string.Empty;
 }

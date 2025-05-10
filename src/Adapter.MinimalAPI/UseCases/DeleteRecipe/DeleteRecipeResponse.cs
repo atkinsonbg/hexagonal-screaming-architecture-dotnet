@@ -6,5 +6,5 @@ public record DeleteRecipeResponse
 
     [JsonPropertyNameAttribute("success")] public bool Success { get; init; }
 
-    [JsonPropertyNameAttribute("message")] public string Message { get; init; }
+    [JsonPropertyNameAttribute("message")] public string Message { get; init; } = string.Empty;
 }

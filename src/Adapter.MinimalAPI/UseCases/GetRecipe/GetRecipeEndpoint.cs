@@ -8,7 +8,7 @@ public static class GetRecipeEndpoint
 
     private static IResult HandleAsync(HttpRequest request)
     {
-        int id = int.Parse(request.RouteValues["id"].ToString());
+        int id = int.Parse(request?.RouteValues["id"]?.ToString());
 
         var recipe = new Core.UseCases.GetRecipe().PerformGet(id);
         
