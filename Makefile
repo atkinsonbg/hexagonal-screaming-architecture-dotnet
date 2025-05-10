@@ -4,7 +4,7 @@ build:
 run:
 	dotnet run --project ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj
 
-start:
+start: stop
 	docker-compose up -d
 
 stop:
