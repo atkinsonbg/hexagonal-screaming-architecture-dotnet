@@ -4,6 +4,12 @@ build:
 run:
 	dotnet run --project ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj
 
+start:
+	docker-compose up -d
+
+stop:
+	docker-compose down --remove-orphans
+
 sln:
 	dotnet new sln --name hexagonal-screaming-architecture-dotnet
 	
