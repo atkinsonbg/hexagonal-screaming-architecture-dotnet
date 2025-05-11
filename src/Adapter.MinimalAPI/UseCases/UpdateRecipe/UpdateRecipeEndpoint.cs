@@ -1,17 +1,21 @@
+using Core.UseCases;
+
 public static class UpdateRecipeEndpoint
 {
     public static WebApplication MapUpdateRecipeEndpoint(this WebApplication app)
     {
-        app.MapPut("/recipe", async (Recipe recipe) => await HandleAsync(recipe));
+        app.MapPut("/recipe", async (Recipe recipe, IUpdateRecipe iUpdateRecipe) => await HandleAsync(recipe, iUpdateRecipe));
         return app;
     }
 
-    private static async Task<IResult> HandleAsync(Recipe recipe)
+    private static async Task<IResult> HandleAsync(Recipe recipe, IUpdateRecipe iUpdateRecipe)
     {
         var coreRecipe = new Core.Models.Recipe()
         {
+            Id = recipe.Id,
             Title = recipe.Title,
             Description = recipe.Description,
+            Instructions = recipe.Instructions,
             Ingredients = recipe.Ingredients.Select(i => new Core.Models.Ingredient
             {
                 Name = i.Name,
@@ -19,7 +23,7 @@ public static class UpdateRecipeEndpoint
             }).ToList()
         };
 
-        var coreUpdateRecipe = new Core.UseCases.UpdateRecipe();
+        var coreUpdateRecipe = new Core.UseCases.UpdateRecipe(iUpdateRecipe);
         var updatedRecipe = coreUpdateRecipe.PerformUpdate(coreRecipe);
 
         UpdateRecipeResponse response = new UpdateRecipeResponse()

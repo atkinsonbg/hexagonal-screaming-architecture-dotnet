@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 
 public record Recipe
 {
+    [JsonPropertyNameAttribute("id")] public int Id { get; init; }
     [JsonPropertyNameAttribute("title")] public string Title { get; init; } = string.Empty;
     [JsonPropertyNameAttribute("description")] public string Description { get; init; } = string.Empty;
     [JsonPropertyNameAttribute("instructions")] public string Instructions { get; init; } = string.Empty;

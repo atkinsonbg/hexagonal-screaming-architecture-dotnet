@@ -14,6 +14,7 @@ public static class InsertRecipeEndpoint
         {
             Title = recipe.Title,
             Description = recipe.Description,
+            Instructions = recipe.Instructions,
             Ingredients = recipe.Ingredients.Select(i => new Core.Models.Ingredient
             {
                 Name = i.Name,
