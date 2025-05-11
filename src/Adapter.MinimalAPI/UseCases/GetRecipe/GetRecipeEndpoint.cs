@@ -6,11 +6,11 @@ public static class GetRecipeEndpoint
         return app;
     }
 
-    private static IResult HandleAsync(HttpRequest request, Core.UseCases.IGetRecipe getRecipe)
+    private static IResult HandleAsync(HttpRequest request, Core.UseCases.IGetRecipe iGetRecipe)
     {
         int id = int.Parse(request?.RouteValues["id"]?.ToString());
 
-        var recipe = new Core.UseCases.GetRecipe(getRecipe).PerformGet(id);
+        var recipe = new Core.UseCases.GetRecipe(iGetRecipe).PerformGet(id);
         
         if (recipe == null)
         {

@@ -1,3 +1,5 @@
+using Core.UseCases;
+
 public static class DeleteRecipeEndpoint
 {
     public static WebApplication MapDeleteRecipeEndpoint(this WebApplication app)
@@ -6,10 +8,10 @@ public static class DeleteRecipeEndpoint
         return app;
     }
 
-    private static IResult HandleAsync(HttpRequest request)
+    private static IResult HandleAsync(HttpRequest request, Core.UseCases.IDeleteRecipe iDeleteRecipe)
     {
         int id = int.Parse(request?.RouteValues?["id"].ToString());
-        var successfullyDeletedRecipe = new Core.UseCases.DeleteRecipe().PerformDelete(id);
+        var successfullyDeletedRecipe = new Core.UseCases.DeleteRecipe(iDeleteRecipe).PerformDelete(id);
 
         DeleteRecipeResponse response = new DeleteRecipeResponse()
         {

@@ -6,13 +6,11 @@ namespace Adapter.Postgres;
 
 public class GetRecipe : IGetRecipe
 {
-    private const string _connectionString = "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=postgres";
-
     public Recipe PerformGet(int id)
     {
         var recipe = new Recipe();
         
-        using (var conn = new NpgsqlConnection(_connectionString))
+        using (var conn = new NpgsqlConnection(Constants.ConnectionString))
         {
             conn.Open();
             

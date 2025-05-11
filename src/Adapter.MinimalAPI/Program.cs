@@ -3,6 +3,7 @@ using System.Data.Common;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<Core.UseCases.IGetRecipe, Adapter.Postgres.GetRecipe>();
+builder.Services.AddSingleton<Core.UseCases.IDeleteRecipe, Adapter.Postgres.DeleteRecipe>();
 
 var app = builder.Build();
 
