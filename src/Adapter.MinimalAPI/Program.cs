@@ -1,4 +1,9 @@
+using System.Data.Common;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<Core.UseCases.IGetRecipe, Adapter.Postgres.GetRecipe>();
+
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
