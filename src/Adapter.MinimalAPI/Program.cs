@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<Core.UseCases.IGetRecipe, Adapter.Postgres.GetRecipe>();
 builder.Services.AddSingleton<Core.UseCases.IDeleteRecipe, Adapter.Postgres.DeleteRecipe>();
+builder.Services.AddSingleton<Core.UseCases.IInsertRecipe, Adapter.Postgres.InsertRecipe>();
 
 var app = builder.Build();
 

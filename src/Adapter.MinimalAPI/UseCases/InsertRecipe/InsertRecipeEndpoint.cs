@@ -1,12 +1,14 @@
+using Core.UseCases;
+
 public static class InsertRecipeEndpoint
 {
     public static WebApplication MapInsertRecipeEndpoint(this WebApplication app)
     {
-        app.MapPost("/recipe", async (Recipe recipe) => await HandleAsync(recipe));
+        app.MapPost("/recipe", async (Recipe recipe, IInsertRecipe iInsertRecipe) => await HandleAsync(recipe, iInsertRecipe));
         return app;
     }
 
-    private static async Task<IResult> HandleAsync(Recipe recipe)
+    private static async Task<IResult> HandleAsync(Recipe recipe, IInsertRecipe iInsertRecipe)
     {
         var coreRecipe = new Core.Models.Recipe()
         {
@@ -19,7 +21,7 @@ public static class InsertRecipeEndpoint
             }).ToList()
         };
 
-        var insertRecipeUseCase = new Core.UseCases.InsertRecipe();
+        var insertRecipeUseCase = new Core.UseCases.InsertRecipe(iInsertRecipe);
         var insertRecipe = insertRecipeUseCase.PerformInsert(coreRecipe);
         
         InsertRecipeResponse response = new InsertRecipeResponse()

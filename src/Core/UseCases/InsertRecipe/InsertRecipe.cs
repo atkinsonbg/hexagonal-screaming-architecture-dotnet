@@ -4,17 +4,15 @@ namespace Core.UseCases;
 
 public class InsertRecipe
 {
-    public InsertRecipe()
+    private readonly IInsertRecipe _insertRecipe;
+
+    public InsertRecipe(IInsertRecipe insertRecipe)
     {
-        // Constructor logic if needed
+        _insertRecipe = insertRecipe;
     }
 
     public Recipe PerformInsert(Recipe recipe)
     {
-        // Simulate inserting the recipe
-        // In a real application, this would involve database operations, and returning a status code
-        // For this example, we'll just return the recipe back with a new ID
-        recipe.Id = 2;
-        return recipe;
+        return _insertRecipe.PerformInsert(recipe);
     }
 }
