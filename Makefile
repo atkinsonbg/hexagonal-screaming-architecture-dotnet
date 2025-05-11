@@ -25,5 +25,11 @@ add-core-project:
 update-sln-add-core:
 	dotnet sln hexagonal-screaming-architecture-dotnet.sln add ./src/Core/Core.csproj
 
+add-db-adapter-project:
+	dotnet new classlib -o ./src/Adapter.Postgres
+
+update-sln-add-db-adpater:
+	dotnet sln hexagonal-screaming-architecture-dotnet.sln add ./src/Adapter.Postgres/Adapter.Postgres.csproj
+
 add-core-reference-to-api:
 	dotnet add ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj reference ./src/Core/Core.csproj
