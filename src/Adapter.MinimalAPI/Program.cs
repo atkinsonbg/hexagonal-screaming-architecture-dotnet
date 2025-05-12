@@ -9,6 +9,9 @@ builder.Services.AddSingleton<Core.UseCases.IUpdateRecipe, Adapter.Postgres.Upda
 
 var app = builder.Build();
 
+// Force the ports to use
+app.Urls.Add("http://localhost:5098");
+
 app.MapGet("/", () => "Hello World!");
 
 // add in our endpoints defined in our UseCases directory
