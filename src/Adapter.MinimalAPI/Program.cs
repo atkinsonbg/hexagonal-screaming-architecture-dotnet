@@ -1,20 +1,33 @@
-using System.Data.Common;
+namespace Adapter.MinimalAPI;
 
-var builder = WebApplication.CreateBuilder(args);
+public class AdapterMinimalApi
+{
+    private readonly WebApplication _app;
 
-builder.Services.AddSingleton<Core.UseCases.IGetRecipe, Adapter.Postgres.GetRecipe>();
-builder.Services.AddSingleton<Core.UseCases.IDeleteRecipe, Adapter.Postgres.DeleteRecipe>();
-builder.Services.AddSingleton<Core.UseCases.IInsertRecipe, Adapter.Postgres.InsertRecipe>();
-builder.Services.AddSingleton<Core.UseCases.IUpdateRecipe, Adapter.Postgres.UpdateRecipe>();
+    public AdapterMinimalApi(string[] args, Action<IServiceCollection> services)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+        // Add services to the container, passed in via the ApplicationHost project
+        services.Invoke(builder.Services);
 
-app.MapGet("/", () => "Hello World!");
+        _app = builder.Build();
 
-// add in our endpoints defined in our UseCases directory
-app.MapGetRecipeEndpoint();
-app.MapInsertRecipeEndpoint();
-app.MapUpdateRecipeEndpoint();
-app.MapDeleteRecipeEndpoint();
+        // Force the ports to use
+        _app.Urls.Add("http://localhost:5098");
 
-app.Run();
+        // Add the Hello World endpoint, that acts as a health check
+        _app.MapGet("/", () => "Hello World!");
+
+        // add in our endpoints defined in our UseCases directory
+        _app.MapGetRecipeEndpoint();
+        _app.MapInsertRecipeEndpoint();
+        _app.MapUpdateRecipeEndpoint();
+        _app.MapDeleteRecipeEndpoint();
+    }
+
+    public Task RunAsync()
+    {
+        return _app.RunAsync();
+    }
+}

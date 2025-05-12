@@ -2,13 +2,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\Adapter.Postgres\Adapter.Postgres.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <outputType>Library</outputType>
   </PropertyGroup>
 
 </Project>
