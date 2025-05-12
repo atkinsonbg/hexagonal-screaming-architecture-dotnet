@@ -1,4 +1,3 @@
-using Core.Models;
 using Core.UseCases;
 using Npgsql;
 
