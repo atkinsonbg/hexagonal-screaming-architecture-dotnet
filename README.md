@@ -1,6 +1,12 @@
 # Hexagonal & Screaming Architecture in .NET
 This repo supports the talk by the same name given at various .NET and Software User Groups/Meetups. The goal is to showcase how you can use Hexagonal and Screaming architecture in your .NET projects to enfore de-coupling of your code, make it extremely transparent, easy to update, and easy to test.
 
+## NOTE!!!
+This application focuses on the architecture of Hexagonal and Screaming and much less on proper coding techniques. As such you will find in code in here that is either:
+- Not doing enough (very happy path, no logic, no validations, etc)
+- Not doing things properly (DB access is not optimal, very little business logic)
+- General bad practices (don't take this code at face value, the architecture is the focus, everything else just serves its purpose)
+
 ## What the Application Does
 The simple API allows users to upload, edit, and delete recipes. We've intentionally kept the functionality small to showcase the architecture, but also have a complete solution we can build and demo in a single presentation.
 
