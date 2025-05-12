@@ -58,8 +58,17 @@ PHONY: add-mysql-adapter-project
 add-mysql-adapter-project:
 	dotnet new classlib -o ./src/Adapter.MySQL
 
+PHONY: add-core-reference-to-mysql
+add-core-reference-to-mysql:
+	dotnet add ./src/Adapter.MySQL/Adapter.MySQL.csproj reference ./src/Core/Core.csproj
+
+PHONY: update-sln-add-mysql
+update-sln-add-mysql:
+	dotnet sln hexagonal-screaming-architecture-dotnet.sln add ./src/Adapter.MySQL/Adapter.MySQL.csproj
+
 PHONY: add-all-references-to-host
 add-all-references-to-host:
 	dotnet add ./src/ApplicationHost.API/ApplicationHost.API.csproj reference ./src/Core/Core.csproj
 	dotnet add ./src/ApplicationHost.API/ApplicationHost.API.csproj reference ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj
 	dotnet add ./src/ApplicationHost.API/ApplicationHost.API.csproj reference ./src/Adapter.Postgres/Adapter.Postgres.csproj
+	dotnet add ./src/ApplicationHost.API/ApplicationHost.API.csproj reference ./src/Adapter.MySQL/Adapter.MySQL.csproj
