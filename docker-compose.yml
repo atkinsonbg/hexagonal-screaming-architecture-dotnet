@@ -6,8 +6,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 8888:8080
+
   postgres:
-    image: postgres:latest
+    image: postgres:15
     container_name: postgres
     environment:
       POSTGRES_USER: postgres
@@ -17,3 +18,16 @@ services:
       - "5432:5432"
     volumes:
       - ./.postgres/init:/docker-entrypoint-initdb.d
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.mysql/init:/docker-entrypoint-initdb.d

@@ -34,25 +34,29 @@ PHONY: update-sln-add-core
 update-sln-add-core:
 	dotnet sln hexagonal-screaming-architecture-dotnet.sln add ./src/Core/Core.csproj
 
-PHONY: add-db-project
-add-db-adapter-project:
+PHONY: add-postgres-adapter-project
+add-postgres-adapter-project:
 	dotnet new classlib -o ./src/Adapter.Postgres
 
-PHONY: update-sln-add-db
-update-sln-add-db-adpater:
+PHONY: update-sln-add-postgres-adpater
+update-sln-add-postgres-adpater:
 	dotnet sln hexagonal-screaming-architecture-dotnet.sln add ./src/Adapter.Postgres/Adapter.Postgres.csproj
 
-PHONY: add-db-reference-to-api
+PHONY: add-core-reference-to-api
 add-core-reference-to-api:
 	dotnet add ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj reference ./src/Core/Core.csproj
 
-PHONY: add-db-reference-to-api
+PHONY: add-application-host-project
 add-application-host-project:
 	dotnet new console -o ./src/ApplicationHost.API
 
-PHONY: update-sln-add-host
+PHONY: update-sln-add-host-adpater
 update-sln-add-host-adpater:
 	dotnet sln hexagonal-screaming-architecture-dotnet.sln add ./src/ApplicationHost.API/ApplicationHost.API.csproj
+
+PHONY: add-mysql-adapter-project
+add-mysql-adapter-project:
+	dotnet new classlib -o ./src/Adapter.MySQL
 
 PHONY: add-all-references-to-host
 add-all-references-to-host:
