@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\Adapter.MinimalAPI\Adapter.MinimalAPI.csproj" />
+    <ProjectReference Include="..\Port.MinimalAPI\Port.MinimalAPI.csproj" />
     <ProjectReference Include="..\Adapter.Postgres\Adapter.Postgres.csproj" />
   </ItemGroup>
 

@@ -9,6 +9,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <outputType>Library</outputType>
+    <RootNamespace>Adapter.MinimalAPI</RootNamespace>
   </PropertyGroup>
 
 </Project>
