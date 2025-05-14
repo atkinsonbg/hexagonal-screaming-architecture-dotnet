@@ -1,12 +1,16 @@
+.PHONY: build
 build:
-	dotnet build
+	dotnet build -v detailed
 
+.PHONY: run
 run:
-	dotnet run --project ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj
+	dotnet run --project ./src/Port.MinimalAPI/Port.MinimalAPI.csproj
 
+.PHONY: start
 start: stop
 	docker-compose up -d
 
+.PHONY: stop
 stop:
 	docker-compose down --remove-orphans
 
