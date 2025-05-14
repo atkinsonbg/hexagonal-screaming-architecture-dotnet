@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{607B0812-E329-4E9B-8A0E-8F61C694175C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter.MinimalAPI", "src\Adapter.MinimalAPI\Adapter.MinimalAPI.csproj", "{D8C19639-CFA6-4C2B-9805-414CE0AB534C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Port.MinimalAPI", "src\Port.MinimalAPI\Port.MinimalAPI.csproj", "{D8C19639-CFA6-4C2B-9805-414CE0AB534C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

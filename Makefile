@@ -1,8 +1,10 @@
+
 build:
 	dotnet build
 
+.PHONY: run
 run:
-	dotnet run --project ./src/Adapter.MinimalAPI/Adapter.MinimalAPI.csproj
+	dotnet run --project ./src/Port.MinimalAPI/Port.MinimalAPI.csproj
 
 sln:
 	dotnet new sln --name hexagonal-screaming-architecture-dotnet
